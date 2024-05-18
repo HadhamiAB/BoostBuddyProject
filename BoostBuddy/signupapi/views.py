@@ -23,7 +23,6 @@ def manageprofile_view(request,userId):
         serializer=UserSerializer(user)
         return Response(serializer.data)
     elif request.method == 'PUT':
-        # partial=True allows partial updates with PUT
         serializer = UserSerializer(user, data=request.data, partial=True)  
         if serializer.is_valid():
             serializer.save()

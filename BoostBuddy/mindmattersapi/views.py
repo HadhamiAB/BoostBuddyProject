@@ -10,15 +10,18 @@ from django.http import JsonResponse
 @authentication_classes([TokenAuthentication])
 def addtip_view(request):
     if request.method == 'POST':
-        data = request.data.copy()  # Make a mutable copy of the data
-        data['user'] = request.user.id  # Add the user id to the data
+        # Make a mutable copy of the data
+        data = request.data.copy()  
+         # Add the user id to the data
+        data['user'] = request.user.id 
         serializer = TipsSerializer(data=data)
         if serializer.is_valid():
             tip = serializer.save()
-           # print(tip.id)
             return Response({'Success': True, 'Tip': tip.title, 'id': tip.id})
         else:
             return Response(serializer.errors, status=400)
+        
+
 @api_view(['GET'])
 @authentication_classes([TokenAuthentication])
 def viewalltips_view(request):
@@ -28,6 +31,8 @@ def viewalltips_view(request):
         return Response(serializer.data)
     else:
         return JsonResponse({'status': 'User is not authenticated'}, status=400)    
+    
+
 @api_view(['GET'])
 @authentication_classes([TokenAuthentication])
 def viewusertips_view(request):
@@ -50,6 +55,7 @@ def delete_tip_view(request ,id):
         return Response({'Error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     
     return Response({'Success': True, 'Message': f'Tip with id {id} has been deleted.'})
+
 @api_view(['POST'])
 @authentication_classes([TokenAuthentication])
 def like_tip(request, tip_id):
