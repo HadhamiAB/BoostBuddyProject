@@ -1,0 +1,123 @@
+@keyframes flip {
+    0% { transform: rotateY(0deg); }
+    50% { transform: rotateY(180deg); }
+    100% { transform: rotateY(360deg); }
+  }
+  
+  .thecard {
+    
+    animation: flip 20s infinite ;
+  }
+  
+  .thecard:nth-child(2) {
+    animation-delay: 20s;
+  }
+  
+  .thecard:nth-child(3) {
+    animation-delay: 40s;
+  }
+  .thecard:nth-child(1) .thefront {
+    background: #8453BF; 
+    color: white;
+  }
+  
+  .thecard:nth-child(1) .theback {
+    background: #DDCAF5; 
+  }
+  
+ 
+  
+
+  
+  .maincontainer{
+    display: flex;
+    justify-content: flex-start; 
+    align-items: flex-end; 
+    position: relative;
+    width: 50%;
+    height: 320px;
+    background: none;
+    padding-bottom: 20px;
+    transform: translate(-50%, -50%);
+}
+
+.thecard{
+    position: relative;
+    top: 200%;
+    left: 250%;
+    bottom: 0;
+    width: 250px;
+    height: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: all 10s ease;
+     margin-right: 0px;
+}
+
+  
+  .thecard:hover{
+    transform: rotateY(180deg);
+  }
+  
+  .thefront{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+
+  }
+  
+  .theback{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    background: #fafafa;
+    color: #333;
+    text-align: center;
+    transform: rotateY(180deg);
+  }
+  
+  .thefront h1{
+    font-family: Segoe Print, Arial, Helvetica, sans-serif;
+    padding: 30px;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+    text-shadow: 5px 2px 8px #f1f3f3;
+  }
+  .theback h1{
+    font-family: Segoe Print, Arial, Helvetica, sans-serif;
+    padding: 20px;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+    text-shadow: 5px 2px 8px #915dbb;
+
+  }
+  
+  .thefront p{
+    font-family: 'zilla slab', sans-serif;
+    padding: 30px;
+    font-weight: normal;
+    font-size: 18px;
+    text-align: center;
+  }
+  
+.theback p{
+    font-family: 'zilla slab', sans-serif;
+    padding: 10px;
+    font-weight: normal;
+    font-size: 18px;
+    text-align: center;
+  }
+  
